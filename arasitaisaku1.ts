@@ -14,26 +14,26 @@ client.on("update:cert", d => console.log("cert:", d))
 client.on("update:authtoken", (d) => console.log("AuthToken:", d))
 
 await client.login({
-  device: "DESKTOPWIN",
-  email: "YOUR_EMAIL",
-  password: "YOUR_PASS",
-  polling: [],
+  device: "IOSIPAD",
+authToken: "FJwskdnokHspdXAwwslb.tQ7bqB3AvpZ91q2EQoGOwW.E39jnKTPg/ry1QazEh46epQgaeaqIxHske5UXJ4vxNc=",
+  polling: []  
 });
-let syncToken;
+let continuationToken;
 const squareChatMid = "m6fb395949c79240780f37668e5f898a9";
 const memberMid = "p51ea935c217a2aa5e3dac50abbf9e11b";
 while (true) {
   const response = await client.fetchSquareChatEvents({
     squareChatMid,
-    syncToken,
+    continuationToken,
   });
-  syncToken = response.syncToken;
+  continuationToken = response.continuationToken;
   for (const event of response.events) {
     if (
       event.type === "RECEIVE_MESSAGE" &&
       event.payload.receiveMessage
     ) {
       if (event.payload.receiveMessage.squareMessage.message._from === memberMid) {
+        console.log("delete", event.payload.receiveMessage.squareMessage.message.text)
         await client.destroySquareMessage({ messageId: event.payload.receiveMessage.squareMessage.message.id, squareChatMid })
       }
     }
