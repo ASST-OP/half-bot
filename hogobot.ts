@@ -15,7 +15,7 @@ client.on("update:authtoken", (d) => console.log("AuthToken:", d))
 
 await client.login({
   device: "IOSIPAD",
-  authToken: "FJzLJer7Uh2BIHa1ATqb.tQ7bqB3AvpZ91q2EQoGOwW.qlZRgj3+vJ+Aj6y8bppSK8pjU3L9RsMQBpB+VFMdakQ=",
+  authToken: "FJUH9kNaIW66izLZFFWb.tQ7bqB3AvpZ91q2EQoGOwW.mlejVSp3AXjvuihuVUaPItV5AZVmKh/+o9laoHXU7bc=",
   polling: [],
 });
 const syncToken: Record<string, string> = {};
