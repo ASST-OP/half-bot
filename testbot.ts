@@ -39,7 +39,7 @@ while (true) {
           console.log("delete:", event.payload.receiveMessage.squareMessage.message._from, new Date(event.payload.receiveMessage.squareMessage.message.deliveredTime as number).toLocaleTimeString())
           await client.destroySquareMessage({ messageId: event.payload.receiveMessage.squareMessage.message.id, squareChatMid })
         } else if (event.payload.receiveMessage.squareMessage.message.text === "!ping") {
-        await client.sendSquareMessage({ squareChatMid: "m6fb395949c79240780f37668e5f898a9", text: "テスト ${new Date().toLocaleString("ja-JP", { hour12: false })}.${Math.floor(new Date().getMilliseconds() / 100)}");
+        await client.sendSquareMessage({ squareChatMid: "m6fb395949c79240780f37668e5f898a9", text: "テスト ${new Date().toLocaleString()}.${Math.floor(new Date().getMilliseconds() / 100)}");
         }
       }
     }
