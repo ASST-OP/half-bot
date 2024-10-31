@@ -38,6 +38,8 @@ while (true) {
         if (event.payload.receiveMessage.squareMessage.message.text === "非表示にしたメッセージです。") {
           console.log("delete:", event.payload.receiveMessage.squareMessage.message._from, new Date(event.payload.receiveMessage.squareMessage.message.deliveredTime as number).toLocaleTimeString())
           await client.destroySquareMessage({ messageId: event.payload.receiveMessage.squareMessage.message.id, squareChatMid })
+        } else if (event.payload.receiveMessage.squareMessage.message.text === "!ping") {
+        await message.reply("pong!");
         }
       }
     }
