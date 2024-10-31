@@ -23,6 +23,8 @@ const syncToken: Record<string, string> = {};
 
 const squareChatMids = ["m6fb395949c79240780f37668e5f898a9"];
 
+await client.sendSquareMessage({ squareChatMid: "m6fb395949c79240780f37668e5f898a9", text: `[！]保護Bot起動 ${currentDateTime}`});
+
 while (true) {
   for (const squareChatMid of squareChatMids) {
     const response = await client.fetchSquareChatEvents({
