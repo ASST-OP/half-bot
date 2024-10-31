@@ -47,14 +47,9 @@ while (true) {
 
 // メッセージ受信時の処理
 client.on("square:message", async (message) => {
-  const text = message.content;
+    const text = message.content;
 
-  if (text === "!ping") {
-    await message.reply("pong!");
-  } else if (text === "!check") {
-    const now = new Date();
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-    await message.reply(`[！]all OK ${minutes}:${seconds}`);
-  }
+    if (text === "!ping") {
+        await message.reply("pong!");
+    }
 });
