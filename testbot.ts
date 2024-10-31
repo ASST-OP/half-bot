@@ -44,12 +44,3 @@ while (true) {
   }
   await new Promise((resolve) => setTimeout(resolve, 1000));
 }
-
-// メッセージ受信時の処理
-client.on("square:message", async (message) => {
-    const text = message.content;
-
-    if (text === "!ping") {
-        await message.reply("pong!");
-    }
-});
