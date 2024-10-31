@@ -19,4 +19,4 @@ await client.login({
   authToken: "FJUH9kNaIW66izLZFFWb.tQ7bqB3AvpZ91q2EQoGOwW.mlejVSp3AXjvuihuVUaPItV5AZVmKh/+o9laoHXU7bc=",
   polling: [],
 });
-console.log(await client.findSquareByInvitationTicketV2({ invitationTicket: "qBW1Z12oPRvmtUV5KumByXZ9WqhrHd8oXanaAg" }))
+console.log(await client.findSquareByInvitationTicketV2({ invitationTicket: "h80BRwkTyjiKycLMuhnHuTywSi-JMP9w-mfLdg" }))
