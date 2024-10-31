@@ -20,3 +20,6 @@ await client.login({
   polling: [],
 });
 console.log(await client.findSquareByInvitationTicketV2({ invitationTicket: "h80BRwkTyjiKycLMuhnHuTywSi-JMP9w-mfLdg" }))
+console.log(await client.findSquareByInvitationTicketV2({ invitationTicket: "QYHL-OgnRqBCupUSydNgmj8KKP9GqvK1Qebt-g" }))
+console.log(await client.findSquareByInvitationTicketV2({ invitationTicket: "v-4Cn-RhP98vHtcqZMexmPj44CJCrNniHHJWMQ" }))
+console.log(await client.findSquareByInvitationTicketV2({ invitationTicket: "1yxxXFI0_N0ZrTf1xn1La2lHYABsaO9_6qLicg" }))
