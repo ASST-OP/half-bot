@@ -25,13 +25,13 @@ const squareChatMids = ["m6fb395949c79240780f37668e5f898a9", "mcfa28b4d1dd65f35c
 
 await client.sendSquareMessage({ squareChatMid: "m6fb395949c79240780f37668e5f898a9", text: `[！]保護Bot起動 ${currentDateTime}`});
 
-const sendTimes = ["06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00", "22:00", "23:00"];
+const sendTimes = ["06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00", "22:00", "23:05"];
 
 async function checkAndSend() {
   const now = new Date();
   const currentTime = now.toLocaleTimeString("ja-JP", { hour12: false, hour: "2-digit", minute: "2-digit" });
   if (sendTimes.includes(currentTime)) {
-  await client.sendSquareMessage({ squareChatMid, text: `保護Bot稼働中 ${currentTime}` });}
+  await client.sendSquareMessage({ squareChatMid: "m6fb395949c79240780f37668e5f898a9", text: `保護Bot稼働中 ${currentTime}` });}
 setTimeout(checkAndSend, 60 * 1000);}
 checkAndSend();
 
