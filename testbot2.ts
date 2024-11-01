@@ -25,7 +25,7 @@ const squareChatMids = ["m6fb395949c79240780f37668e5f898a9", "mcfa28b4d1dd65f35c
 
 await client.sendSquareMessage({ squareChatMid: "m6fb395949c79240780f37668e5f898a9", text: `[！]保護Bot起動 ${currentDateTime}`});
 
-const sendTimes = ["06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00", "22:00", "00:00"];
+const sendTimes = ["06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00", "22:00", "23:00"];
 
 async function checkAndSend() {
   const now = new Date();
