@@ -16,7 +16,7 @@ const currentDateTime = `${new Date().toLocaleString()}.${Math.floor(new Date().
 
 await client.login({
   device: "IOSIPAD",
-  authToken: "FJ9HunAdsc9CV6DMNtCb.tQ7bqB3AvpZ91q2EQoGOwW.l+IznsrClXfDU7YXVk4fBTXjeFWwF1Q9osRdLqUQ8OI=",
+  authToken: "FJ63L5OtPFoYkp0Piyvb.tQ7bqB3AvpZ91q2EQoGOwW.r+z4k7+k7GhVP1wIuQiB5N9E66JO1bzA4mJEdq2xms8=",
   polling: [],
 });
 const syncToken: Record<string, string> = {};
