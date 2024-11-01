@@ -27,7 +27,7 @@ await client.sendSquareMessage({ squareChatMid: "m6fb395949c79240780f37668e5f898
 
 setInterval(async () => {const currentDateTime = new Date().toLocaleString("ja-JP", { hour12: false });
     await client.sendSquareMessage({ squareChatMid: "m6fb395949c79240780f37668e5f898a9", text: `[！]保護bot稼働中 ${currentDateTime}`});
-}, 7200000); 
+}, 30000); 
 
 while (true) {
   for (const squareChatMid of squareChatMids) {
