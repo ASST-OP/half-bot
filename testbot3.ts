@@ -34,3 +34,26 @@ async function checkAndSend() {
   await client.sendSquareMessage({ squareChatMid, text: `保護Bot稼働中 ${currentTime}` });}
 setTimeout(checkAndSend, 60 * 1000);}
 checkAndSend();
+
+while (true) {
+  for (const squareChatMid of squareChatMids) {
+    const response = await client.fetchSquareChatEvents({
+      squareChatMid,
+      syncToken: syncToken[squareChatMid],
+    });
+    syncToken[squareChatMid] = response.syncToken;
+    for (const event of response.events) {
+      if (
+        event.type === "RECEIVE_MESSAGE" &&
+        event.payload.receiveMessage
+      ) {
+        console.log(event.payload.receiveMessage.squareMessage.message.text)
+        if (event.payload.receiveMessage.squareMessage.message.text === "非表示にしたメッセージです。") {
+          console.log("delete:", event.payload.receiveMessage.squareMessage.message._from, new Date(event.payload.receiveMessage.squareMessage.message.deliveredTime as number).toLocaleTimeString())
+          await client.destroySquareMessage({ messageId: event.payload.receiveMessage.squareMessage.message.id, squareChatMid })
+        }
+      }
+    }
+  }
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+}
