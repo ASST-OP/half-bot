@@ -52,12 +52,11 @@ while (true) {
         console.log(event.payload.receiveMessage.squareMessage.message.text)
         if (event.payload.receiveMessage.squareMessage.message.text === "非表示にしたメッセージです。") {
           console.log("delete:", event.payload.receiveMessage.squareMessage.message._from, new Date(event.payload.receiveMessage.squareMessage.message.deliveredTime as number).toLocaleTimeString())
-          await client.destroySquareMessage({ messageId: event.payload.receiveMessage.squareMessage.message.id, squareChatMid })
+          await client.destroySquareMessage({ messageId: event.payload.receiveMessage.squareMessage.message.id, squareChatMid })}
           else if (typeof event.payload.receiveMessage.squareMessage.message.text === "string") {
           if (event.payload.receiveMessage.squareMessage.message.text.length >= 750) {
           console.log("delete:", event.payload.receiveMessage.squareMessage.message._from, new Date(event.payload.receiveMessage.squareMessage.message.deliveredTime as number).toLocaleTimeString())
           await client.destroySquareMessage({ messageId: event.payload.receiveMessage.squareMessage.message.id, squareChatMid })};
-        }
         }
       }
     }
