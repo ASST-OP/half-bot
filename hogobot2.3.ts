@@ -23,7 +23,7 @@ const syncToken: Record<string, string> = {};
 
 const squareChatMids = ["m6fb395949c79240780f37668e5f898a9", "mcfa28b4d1dd65f35ca21547072c52c14", "m48efef63a86cdc09742195c2a7e45aaf", "m97efcadbc6b4d341e02e7481e990bbf5", "mb1001dbfbe18a763a2d07db64fbf8b6f", "m5fce012dcaee113159482752aeac7a08"];
 
-await client.sendSquareMessage({ squareChatMid: "m6fb395949c79240780f37668e5f898a9", text: `[！]保護Bot起動 ${currentDateTime}`});
+await client.sendSquareMessage({ squareChatMid: "m6fb395949c79240780f37668e5f898a9", text: `[！]test中 ${currentDateTime}`});
 
 while (true) {
   for (const squareChatMid of squareChatMids) {
@@ -41,8 +41,10 @@ while (true) {
         if (event.payload.receiveMessage.squareMessage.message.text === "非表示にしたメッセージです。") {
           console.log("delete:", event.payload.receiveMessage.squareMessage.message._from, new Date(event.payload.receiveMessage.squareMessage.message.deliveredTime as number).toLocaleTimeString())
           await client.destroySquareMessage({ messageId: event.payload.receiveMessage.squareMessage.message.id, squareChatMid })
-        } else if (event.payload.receiveMessage.squareMessage.message.text === "!check") {
-        await client.sendSquareMessage({ squareChatMid: "m6fb395949c79240780f37668e5f898a9", text: `[！]All clear ${currentDateTime}`});
+        } else if (event.payload.receiveMessage.squareMessage.message.text.length >= 750) {
+          console.log("delete:", event.payload.receiveMessage.squareMessage.message._from, new Date(event.payload.receiveMessage.squareMessage.message.deliveredTime as number).toLocaleTimeString())
+          await client.destroySquareMessage({ messageId: event.payload.receiveMessage.squareMessage.message.id, squareChatMid }) 
+          });
         }
       }
     }
