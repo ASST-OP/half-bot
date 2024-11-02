@@ -41,11 +41,13 @@ while (true) {
         if (event.payload.receiveMessage.squareMessage.message.text === "非表示にしたメッセージです。") {
           console.log("delete:", event.payload.receiveMessage.squareMessage.message._from, new Date(event.payload.receiveMessage.squareMessage.message.deliveredTime as number).toLocaleTimeString())
           await client.destroySquareMessage({ messageId: event.payload.receiveMessage.squareMessage.message.id, squareChatMid })
-        } else if (event.payload.receiveMessage.squareMessage.message.text.length >= 750) {
+        } else if (message && typeof message.text === "string") {
+          if (event.payload.receiveMessage.squareMessage.message.text.length >= 750) {
           console.log("delete:", event.payload.receiveMessage.squareMessage.message._from, new Date(event.payload.receiveMessage.squareMessage.message.deliveredTime as number).toLocaleTimeString())
           await client.destroySquareMessage({ messageId: event.payload.receiveMessage.squareMessage.message.id, squareChatMid })};
         }
       }
     }
   }
+}
   await new Promise((resolve) => setTimeout(resolve, 1000));
